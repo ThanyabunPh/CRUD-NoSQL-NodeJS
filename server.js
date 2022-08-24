@@ -10,7 +10,7 @@ app.use(express.json());
 
 // connect database with pooling connection
 var db;
-const uri = "mongodb://admin:admin@127.0.0.1:27017/?authMechanism=DEFAULT&authSource=Complaints";
+const uri = "mongodb://yourID:YourPass@127.0.0.1:27017/?authMechanism=DEFAULT&authSource=Complaints";
 
 // Create a new MongoClient
 const client = new MongoClient(uri);
