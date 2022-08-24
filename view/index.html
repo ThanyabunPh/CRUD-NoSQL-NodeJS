@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js">  </script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js">  </script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+    <title>CRUD FROM API</title>
+
+    <link rel="stylesheet" href="..\asset\css\index.css">
+
+    <!-- <link href="index.css" rel="stylesheet"> -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    
+</head>
+
+<body>
+    <div class="container-fluid d-flex justify-content-between">
+        <div class="container col-5" id="chart1"></div>
+        <div class="container col-7" id="chart2"></div>
+    </div>
+    <div class="container">
+        <div class="bd-highlight mb-3">
+            <nav class="navbar navbar-dark bg-dark text-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand">Navbar</a>
+                    <div class="d-flex">
+                        <input class="form-control me-2" id="searchTextBox" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <button class="btn btn-outline-success" onclick="searchEngine();return false;">Search</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="d-flex bd-highlight mb-3">
+            <div class="me-auto p-2 bd-highlight">
+                <h2>Flexibility Level for online learning</h2>
+            </div>
+            <div class="p-2 bd-highlight">
+                <button type="button" class="btn btn-secondary" onClick="showCreate()">Create</button>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover" style="width:100%" id="myTableList">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Flexibility Level</th>
+                        <th scope="col">Education Level</th>
+                        <th scope="col">Institution Type</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Device</th>
+                        <th scope="col">IT Student</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Financial Condition</th>
+                        <th scope="col">Internet Type</th>
+                        <th scope="col">Network Type</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="mytable">
+
+                    <trdonutchart>
+                        <!-- <th scope="row" colspan="5">Loading...</th> -->
+                    </trdonutchart>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="..\asset\javaScript\index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+</body>
+
+<script>
+    function tablePlugin() {
+        $('#myTableList').DataTable({
+            searching: false,
+            autoFill: true,
+            retrieve: true
+        });
+    }
+
+
+
+
+</script>
+
+</html>
