@@ -3,3 +3,8 @@ body.swal2-shown > [aria-hidden="true"] {
     filter: blur(10px);
     
 }
+
+*{
+    font-family: 'Mitr', sans-serif;
+
+}
