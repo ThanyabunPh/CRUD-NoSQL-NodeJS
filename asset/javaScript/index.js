@@ -255,22 +255,37 @@ function showEdit(id) {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var obj = JSON.parse(this.responseText);
-            console.log(obj['Financial Condition'])
+            // console.log(obj['Financial Condition'])
+            if (checkExist == 'Exists!') {
+                LoadDataintoEdit(obj);
+            }
             Swal.fire({
                 title: 'edit Data !',
                 html:
-                    '<div class="input-group mb-3"><div class="input-group-prepend"><span class="input-group-text">ObjID</span></div><input id="exObjID" type="text" class="form-control" placeholder="exObjID" aria-label="exObjID" aria-describedby="exObjID" value="' + obj['_id'] + '" disabled></div>' +
-                    '<div class="input-group mb-3"><label class="input-group-text" for="exFinancialCondition">Financial Condition Level</label><select class="form-select" id="exFinancialCondition" value="' + obj['Financial Condition'] + '"><option selected disabled>Choose...</option><option value="Poor">Poor</option><option value="Mid">Mid</option><option value="Rich">Rich</option></select></div>' +
-                    '<div class="input-group mb-3"><label class="input-group-text" for="exEducationLevel">Education Level</label><select class="form-select" id="exEducationLevel"><option selected disabled>Choose...</option><option value="University">University</option><option value="College">College</option><option value="School">School</option></select></div>' +
-                    '<div class="input-group mb-3"><label class="input-group-text" for="exInstitutionType">Institution Type</label><select class="form-select" id="exInstitutionType"><option selected disabled>Choose...</option><option value="Public">Public</option><option value="Private">Private</option></select></div>' +
-                    '<div class="input-group mb-3"><label class="input-group-text" for="exGender">Gender</label><select class="form-select" id="exGender"><option selected disabled>Choose...</option><option value="Female">Female</option><option value="Male">Male</option></select></div>' +
-                    '<div class="input-group mb-3"><div class="input-group-prepend"><span class="input-group-text">Age</span></div><input id="exAge" type="text" class="form-control" placeholder="Age" aria-label="Age" aria-describedby="Age"></div>' +
-                    '<div class="input-group mb-3"><label class="input-group-text" for="exdevice">Device</label><select class="form-select" id="exdevice"><option selected disabled>Choose...</option><option value="Tab">Tab</option><option value="Mobile">Mobile</option><option value="Computer">Computer</option></select></div>' +
-                    '<div class="input-group mb-3"><label class="input-group-text" for="exIT_Student">IT Student</label><select class="form-select" id="exIT_Student"><option selected disabled>Choose...</option><option value="Yes">Yes</option><option value="No">No</option></select></div>' +
-                    '<div class="input-group mb-3"><label class="input-group-text" for="exlocation">location</label><select class="form-select" id="exlocation"><option selected disabled>Choose...</option><option value="Town">Town</option><option value="Rural">Rural</option></select></div>' +
-                    '<div class="input-group mb-3"><label class="input-group-text" for="exInternetType">InternetType Level</label><select class="form-select" id="exInternetType"><option selected disabled>Choose...</option><option value="2G">2G</option><option value="3G">3G</option><option value="4G">4G</option><option value="5G">5G</option></select></div>' +
-                    '<div class="input-group mb-3"><label class="input-group-text" for="exNetworkType">Network Type</label><select class="form-select" id="exNetworkType"><option selected disabled>Choose...</option><option value="Wifi">Wifi</option><option value="Mobile Data">Mobile Data</option></select></div>' +
-                    '<div class="input-group mb-3"><label class="input-group-text" for="exFlexibilityLevel">Flexibility Level</label><select class="form-select" id="exFlexibilityLevel"><option selected disabled>Choose...</option><option value="Low">Low</option><option value="High">High</option><option value="Moderate">Moderate</option></select></div>',
+                    '<div class="input-group mb-3"><div class="input-group-prepend"><span class="input-group-text">exObjID</span></div>' +
+                    '<input id="exObjID" type="text" class="form-control" placeholder="exObjID" aria-label="exObjID" aria-describedby="EducationLevel" readonly value="' + obj['_id'] + '"></div>' +
+                    '<div class="input-group mb-3"><div class="input-group-prepend"><span class="input-group-text">Education Level</span></div>' +
+                    '<input id="exEducationLevel" type="text" class="form-control" placeholder="EducationLevel" aria-label="EducationLevel" aria-describedby="EducationLevel" value="' + obj['Education Level'] + '"></div>' +
+                    '<div class="input-group mb-3"><div class="input-group-prepend"><span class="input-group-text">Institution Type</span></div>' +
+                    '<input id="exInstitutionType" type="text" class="form-control" placeholder="Institution Type" aria-label="Institution Type" aria-describedby="Institution Type" value="' + obj['Institution Type'] + '"></div>' +
+                    '<div class="input-group mb-3"><div class="input-group-prepend"><span class="input-group-text">Gender</span></div>' +
+                    '<input id="exGender" type="text" class="form-control" placeholder="Gender" aria-label="Gender" aria-describedby="Gender" value="' + obj['Gender'] + '"></div>' +
+                    '<div class="input-group mb-3"><div class="input-group-prepend"><span class="input-group-text">Age</span></div>' +
+                    '<input id="exAge" type="text" class="form-control" placeholder="Age" aria-label="Age" aria-describedby="Age" value="' + obj['Age'] + '"></div>' +
+                    '<div class="input-group mb-3"><div class="input-group-prepend"><span class="input-group-text">Device</span></div>' +
+                    '<input id="exdevice" type="text" class="form-control" placeholder="device" aria-label="device" aria-describedby="device" value="' + obj['Device'] + '"></div>' +
+                    '<div class="input-group mb-3"><div class="input-group-prepend"><span class="input-group-text">IT_Student</span></div>' +
+                    '<input id="exIT_Student" type="text" class="form-control" placeholder="IT_Student" aria-label="IT_Student" aria-describedby="IT_Student" value="' + obj['IT Student'] + '"></div>' +
+                    '<div class="input-group mb-3"><div class="input-group-prepend"><span class="input-group-text">Location</span></div>' +
+                    '<input id="exlocation" type="text" class="form-control" placeholder="location" aria-label="location" aria-describedby="location" value="' + obj['Location'] + '"></div>' +
+                    '<div class="input-group mb-3"><div class="input-group-prepend"><span class="input-group-text">Financial Condition</span></div>' +
+                    '<input id="exFinancialCondition" type="text" class="form-control" placeholder="FinancialCondition" aria-label="FinancialCondition" aria-describedby="FinancialCondition" value="' + obj['Financial Condition'] + '"></div>' +
+                    '<div class="input-group mb-3"><div class="input-group-prepend"><span class="input-group-text">Internet Type</span></div>' +
+                    '<input id="exInternetType" type="text" class="form-control" placeholder="InternetType" aria-label="InternetType" aria-describedby="InternetType" value="' + obj['Internet Type'] + '"></div>' +
+                    '<div class="input-group mb-3"><div class="input-group-prepend"><span class="input-group-text">Network Type</span></div>' +
+                    '<input id="exNetworkType" type="text" class="form-control" placeholder="NetworkType" aria-label="NetworkType" aria-describedby="NetworkType" value="' + obj['Network Type'] + '"></div>' +
+                    '<div class="input-group mb-3"><div class="input-group-prepend"><span class="input-group-text">Flexibility Level</span></div>' +
+                    '<input id="exFlexibilityLevel" "type="text" class="form-control" placeholder="FlexibilityLevel" aria-label="FlexibilityLevel" aria-describedby="FlexibilityLevel" value="' + obj['Flexibility Level'] + '"></div>',
                 focusConfirm: false,
                 showCancelButton: true,
                 confirmButtonText: 'Edit',
@@ -281,6 +296,21 @@ function showEdit(id) {
         }
     }
 }
+
+var checkExist = setInterval(function () {
+    if ($('#exObjID').length) {
+        console.log("Exists!");
+        clearInterval(checkExist);
+    }
+}, 1000); // check every 100ms
+
+function LoadDataintoEdit(obj) {
+    $("#exObjID").val(obj['_id']);
+    console.log(obj['Financial Condition']);
+    $("#exFinancialCondition").val(obj['Financial Condition']);
+}
+
+
 
 
 function UpdateData() {
@@ -297,20 +327,19 @@ function UpdateData() {
     var exNetworkType = document.getElementById("exNetworkType").value;
     var exFlexibilityLevel = document.getElementById("exFlexibilityLevel").value;
 
-    console.log(JSON.stringify({
-        "_id": id,
-        "EducationLevel": exEducationLevel,
-        "InstitutionType": exInstitutionType,
-        "Gender": exGender,
-        "Age": exAge,
-        "device": exdevice,
-        "IT_Student": exIT_Student,
-        "location": exlocation,
-        "FinancialCondition": exFinancialCondition,
-        "InternetType": exInternetType,
-        "NetworkType": exNetworkType,
-        "FlexibilityLevel": exFlexibilityLevel
-    }));
+    // console.log(JSON.stringify({
+    //     "_id": id,
+    //     "EducationLevel": exEducationLevel,
+    //     "InstitutionType": exInstitutionType,
+    //     "Gender": exGender,
+    //     "Age": exAge,
+    //     "device": exdevice,
+    //     "IT_Student": exIT_Student,
+    //     "location": exlocation,
+    //     "FinancialCondition": exFinancialCondition,
+    //     "InternetType": exInternetType,
+    //     "NetworkType": exNetworkType,
+    //     "FlexibilityLevel": exFlexibilityLevel}));
 
     const xhttp = new XMLHttpRequest();
     xhttp.open("PUT", "http://localhost:3000/StudentFlex/update");
@@ -461,5 +490,6 @@ function searchEngine() {
                 document.getElementById("mytable").innerHTML = TableData;
             }
         }
+
     }
 }
