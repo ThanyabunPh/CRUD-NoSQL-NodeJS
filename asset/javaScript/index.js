@@ -128,14 +128,14 @@ async function loadGraph() {
 
             function drawChart2(University, College, School, FlexLow, FlexHigh, FlexModerate, fxLowUniversity, fxLowCollege, fxLowSchool, fxHighUniversity, fxHighCollege, fxHighSchool, fxModerateUniversity, fxModerateCollege, fxModerateSchool) {
                 var data = google.visualization.arrayToDataTable([
-                    ['Education Level', 'Flexible Low', 'Flexible Moderate', 'Flexible High'],
+                    ['Flexibility', 'Flexible Low', 'Flexible Moderate', 'Flexible High'],
                     ['University', fxLowUniversity, fxModerateUniversity, fxHighUniversity],
                     ['College', fxLowCollege, fxModerateCollege, fxHighCollege],
                     ['School', fxLowSchool, fxModerateSchool, fxHighSchool]
                 ]);
 
                 var options = {
-                    title: 'Education Level'
+                    title: 'Flexibility Level'
                 };
 
                 var chart = new google.visualization.BarChart(document.getElementById('chart2'));
@@ -151,7 +151,7 @@ function showCreate() {
     Swal.fire({
         title: 'new Data',
         html:
-            '<div class="input-group mb-3"><label class="input-group-text" for="FinancialCondition">Financial Condition Level</label><select class="form-select" id="FinancialCondition"><option selected disabled>Choose...</option><option value="Poor">Poor</option><option value="Mid">Mid</option><option value="Rich">Rich</option></select></div>' +
+
             '<div class="input-group mb-3"><label class="input-group-text" for="EducationLevel">Education Level</label><select class="form-select" id="EducationLevel"><option selected disabled>Choose...</option><option value="University">University</option><option value="College">College</option><option value="School">School</option></select></div>' +
             '<div class="input-group mb-3"><label class="input-group-text" for="InstitutionType">Institution Type</label><select class="form-select" id="InstitutionType"><option selected disabled>Choose...</option><option value="Public">Public</option><option value="Private">Private</option></select></div>' +
             '<div class="input-group mb-3"><label class="input-group-text" for="Gender">Gender</label><select class="form-select" id="Gender"><option selected disabled>Choose...</option><option value="Female">Female</option><option value="Male">Male</option></select></div>' +
@@ -184,8 +184,8 @@ function DataInsertCreate() {
     var IT_Student = $('#IT_Student').val();
     var location = $('#location').val();
     var FinancialCondition = $('#FinancialCondition').val();
-    var InternetType = $('#InternetType').val();
-    var NetworkType = $('#NetworkType').val();
+    var InternetType = $('#NetworkType').val();
+    var NetworkType = $('#InternetType').val();
     var FlexibilityLevel = $('#FlexibilityLevel').val();
 
     // console.log(JSON.stringify({
