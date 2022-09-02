@@ -297,21 +297,6 @@ function showEdit(id) {
     }
 }
 
-var checkExist = setInterval(function () {
-    if ($('#exObjID').length) {
-        console.log("Exists!");
-        clearInterval(checkExist);
-    }
-}, 1000); // check every 100ms
-
-function LoadDataintoEdit(obj) {
-    $("#exObjID").val(obj['_id']);
-    console.log(obj['Financial Condition']);
-    $("#exFinancialCondition").val(obj['Financial Condition']);
-}
-
-
-
 
 function UpdateData() {
     var id = document.getElementById("exObjID").value;
@@ -490,6 +475,5 @@ function searchEngine() {
                 document.getElementById("mytable").innerHTML = TableData;
             }
         }
-
     }
 }
